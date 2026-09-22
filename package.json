@@ -1,0 +1,21 @@
+{
+  "name": "mergeit-web",
+  "version": "1.0.0",
+  "description": "MergeIt AI - Official Web Platform & Licensing Portal",
+  "type": "module",
+  "main": "api/create-order.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^6.10.1",
+    "razorpay": "^2.9.6"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
