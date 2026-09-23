@@ -108,7 +108,7 @@ export default async function handler(req, res) {
         },
       });
 
-      const downloadUrl = process.env.APP_DOWNLOAD_URL || 'https://mergeit.in/downloads/MergeIt-AI-v1.0.zip';
+      const downloadUrl = process.env.APP_DOWNLOAD_URL || 'https://github.com/munaf270501/MergeIT/releases/download/v1.0.0/MergeIt-AI-v1.0.zip';
 
       const emailHtml = `
 <!DOCTYPE html>
