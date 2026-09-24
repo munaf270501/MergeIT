@@ -9,6 +9,10 @@
     {
       "source": "/api/verify-payment",
       "destination": "/api/verify-payment.js"
+    },
+    {
+      "source": "/api/generate-trial",
+      "destination": "/api/generate-trial.js"
     }
   ],
   "headers": [

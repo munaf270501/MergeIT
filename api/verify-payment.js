@@ -56,7 +56,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, planId, email } = req.body || {};
+    const { razorpay_order_id, razorpay_payment_id, razorpay_signature, planId, email, name, phone } = req.body || {};
 
     if (!razorpay_order_id || !razorpay_payment_id || !razorpay_signature) {
       return res.status(400).json({ success: false, error: 'Missing payment signature verification data' });
@@ -89,7 +89,7 @@ export default async function handler(req, res) {
 
     // Sync new paid key to Google Sheets (non-blocking)
     try {
-      const sheetUrl = `${GOOGLE_SCRIPT_URL}?action=create_paid&code=${encodeURIComponent(licenseCode)}&plan=${encodeURIComponent(plan.id)}&email=${encodeURIComponent(email)}&paymentId=${encodeURIComponent(razorpay_payment_id)}`;
+      const sheetUrl = `${GOOGLE_SCRIPT_URL}?action=create_paid&code=${encodeURIComponent(licenseCode)}&plan=${encodeURIComponent(plan.id)}&name=${encodeURIComponent(name || '')}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone || '')}&paymentId=${encodeURIComponent(razorpay_payment_id)}`;
       fetch(sheetUrl, { method: 'GET' }).catch(() => {});
     } catch (sheetErr) {
       console.warn('⚠️ Google Sheet log notice:', sheetErr);
