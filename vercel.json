@@ -13,6 +13,14 @@
     {
       "source": "/api/generate-trial",
       "destination": "/api/generate-trial.js"
+    },
+    {
+      "source": "/setup",
+      "destination": "/setup.html"
+    },
+    {
+      "source": "/how-to-setup",
+      "destination": "/setup.html"
     }
   ],
   "headers": [
