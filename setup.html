@@ -42,6 +42,21 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
+    /* User Requested: Scale Website to 150% on Desktop / Large Monitors */
+    html {
+      zoom: 125%;
+    }
+    @media (min-width: 1400px) {
+      html {
+        zoom: 135%;
+      }
+    }
+    @media (min-width: 1750px) {
+      html {
+        zoom: 150%;
+      }
+    }
+
     body {
       background-color: #07080c;
       color: #f3f4f6;
@@ -50,18 +65,19 @@
     }
 
     .sober-glass {
-      background: rgba(14, 17, 25, 0.85);
+      background: rgba(14, 17, 25, 0.75);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .sober-glass-card {
-      background: rgba(14, 17, 25, 0.65);
+      background: rgba(14, 17, 25, 0.70);
       backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .sober-glass-hover:hover {
-      background: rgba(20, 24, 36, 0.9);
+      background: rgba(20, 24, 36, 0.88);
       border-color: rgba(16, 185, 129, 0.35);
     }
 
@@ -77,10 +93,10 @@
     }
   </style>
 </head>
-<body class="selection:bg-emerald-500/25 selection:text-emerald-300">
+<body id="top" class="selection:bg-emerald-500/25 selection:text-emerald-300">
 
   <!-- ========================================================================= -->
-  <!-- NAVBAR -->
+  <!-- NAVBAR (EXACT MATCH WITH HOME PAGE) -->
   <!-- ========================================================================= -->
   <nav class="fixed top-0 left-0 right-0 z-50 sober-glass border-b border-white/[0.06] transition-all">
     <div class="relative w-full max-w-7xl mx-auto px-6 sm:px-10 h-16 flex items-center justify-between">
@@ -91,15 +107,17 @@
         <span class="text-xs sm:text-sm font-extrabold font-mono text-emerald-400 tracking-wider">AI</span>
       </a>
 
-      <!-- Center Nav Links -->
-      <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-8 text-xs font-medium text-zinc-400">
-        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
-        <a href="/#pricing" class="hover:text-emerald-400 transition-colors">Pricing & Plans</a>
-        <a href="/setup" class="text-emerald-400 font-semibold transition-colors flex items-center space-x-1">
-          <span>Setup Guide</span>
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+      <!-- Center Nav Links (Properly Centered in Middle) -->
+      <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center space-x-7 text-xs font-medium text-zinc-400">
+        <a href="/#pricing" class="hover:text-emerald-400 transition-colors">Pricing & Buy</a>
+        <a href="/setup" class="text-emerald-400 font-semibold transition-colors flex items-center space-x-1.5">
+          <i data-lucide="book-open" class="w-3.5 h-3.5 text-emerald-400"></i>
+          <span>How to Setup</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 ml-0.5"></span>
         </a>
-        <a href="/#trial" class="hover:text-emerald-400 transition-colors">Free 2h Trial</a>
+        <a href="/#features" class="hover:text-emerald-400 transition-colors">Features</a>
+        <a href="/#shortcuts" class="hover:text-emerald-400 transition-colors">Hotkeys</a>
+        <a href="/#trial" class="hover:text-emerald-400 transition-colors">Free Trial</a>
         <a href="/#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
       </div>
 
@@ -107,7 +125,7 @@
       <div class="flex items-center space-x-3 z-10">
         <a href="/#trial" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-xs font-medium text-zinc-300 transition-all">
           <i data-lucide="key" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Get Free Pass</span>
+          <span>Free 2h Pass</span>
         </a>
         <a href="https://github.com/munaf270501/MergeIT/releases/download/v1.0.0/MergeIt-AI-v1.0.zip" download class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-black font-semibold text-xs transition-all shadow-md shadow-emerald-500/20">
           <i data-lucide="download" class="w-3.5 h-3.5"></i>
@@ -119,285 +137,439 @@
   </nav>
 
   <!-- ========================================================================= -->
-  <!-- HERO HEADER -->
+  <!-- HERO HEADER (FULL WIDTH MAX-W-7XL) -->
   <!-- ========================================================================= -->
-  <section class="relative pt-32 pb-14 px-6 max-w-5xl mx-auto text-center">
-    <!-- Ambient Glow Background -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <section class="relative pt-32 pb-12 w-full max-w-7xl mx-auto px-6 sm:px-10 text-center">
+    <!-- Ambient Radial Glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/[0.08] rounded-full blur-3xl pointer-events-none"></div>
 
-    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium mb-6">
+    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-white/[0.1] text-zinc-200 text-xs font-medium mb-6 backdrop-blur-md shadow-lg shadow-black/40">
       <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span>COMPLETE SETUP TUTORIAL • 2-MINUTE CONFIGURATION</span>
+      <span class="font-mono text-emerald-400 font-bold uppercase tracking-wider text-[11px]">QUICK START TUTORIAL</span>
+      <span class="text-zinc-500">•</span>
+      <span class="text-zinc-300">2-Minute Setup</span>
     </div>
 
-    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-5 leading-tight">
-      How to Set Up <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">MergeIt AI</span>
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-5 leading-tight">
+      How to Set Up <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">MergeIt AI</span>
     </h1>
-    <p class="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-      Follow this simple step-by-step guide to launch your stealth copilot, connect a free high-speed Groq API key, and prepare for your live interview.
+    <p class="text-sm sm:text-base lg:text-lg text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+      Follow this simple step-by-step guide to extract and launch your copilot, claim your license code, connect your free high-speed Groq API key, and configure real-time audio detection.
     </p>
   </section>
 
   <!-- ========================================================================= -->
-  <!-- MAIN STEP-BY-STEP TUTORIAL -->
+  <!-- MAIN TUTORIAL CONTAINER (MAX-W-7XL EXPANDED MATCHING MAIN SITE) -->
   <!-- ========================================================================= -->
-  <main class="max-w-4xl mx-auto px-6 pb-28 space-y-12">
+  <main class="w-full max-w-7xl mx-auto px-6 sm:px-10 pb-24 space-y-10">
 
-    <!-- STEP 1: DOWNLOAD & LAUNCH -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
-          01
-        </span>
-        <h2 class="text-xl font-bold text-white tracking-tight">Download & Extract (Portable App)</h2>
-      </div>
+    <!-- ======================================================================= -->
+    <!-- ROW 1: STEP 01 (DOWNLOAD) & STEP 02 (LICENSE PASSCODE) -->
+    <!-- ======================================================================= -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- STEP 1: DOWNLOAD & LAUNCH -->
+      <div class="sober-glass-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between hover:border-emerald-500/30 transition-all relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/10 transition-all"></div>
+        
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-black text-sm">
+              01
+            </span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Download & Extract (Portable App)</h2>
+              <div class="text-[11px] font-mono text-zinc-400">Windows 10 / 11 64-bit • Standalone Portable ZIP</div>
+            </div>
+          </div>
 
-      <p class="text-zinc-300 text-sm leading-relaxed mb-4">
-        MergeIt AI is completely portable. There is no complicated installer, no registry modification, and no administrative setup required.
-      </p>
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-5">
+            MergeIt AI is completely portable. There is no heavy installer, no background telemetry, and no registry modification. It runs directly from any local directory.
+          </p>
 
-      <div class="space-y-3 font-mono text-xs text-zinc-300 bg-[#0b0d14] p-4 rounded-xl border border-white/5 mb-5">
-        <div class="flex items-start space-x-2">
-          <span class="text-emerald-400 font-bold select-none">1.</span>
-          <span>Click the <strong class="text-white">Download App</strong> button to download <code class="text-emerald-400 bg-emerald-950/40 px-1 py-0.5 rounded">MergeIt-AI-v1.0.zip</code>.</span>
-        </div>
-        <div class="flex items-start space-x-2">
-          <span class="text-emerald-400 font-bold select-none">2.</span>
-          <span>Right-click the zip file and click <strong class="text-white">"Extract All..."</strong> to any folder (e.g. Desktop or Downloads).</span>
-        </div>
-        <div class="flex items-start space-x-2">
-          <span class="text-emerald-400 font-bold select-none">3.</span>
-          <span>Open the extracted folder and double-click <strong class="text-emerald-400">Mirage.exe</strong>.</span>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-3">
-        <a href="https://github.com/munaf270501/MergeIT/releases/download/v1.0.0/MergeIt-AI-v1.0.zip" download class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs transition-all shadow-md shadow-emerald-500/20">
-          <i data-lucide="download" class="w-4 h-4"></i>
-          <span>Download MergeIt-AI-v1.0.zip (Windows)</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- STEP 2: ACTIVATE ACCESS PASSCODE -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
-          02
-        </span>
-        <h2 class="text-xl font-bold text-white tracking-tight">Enter Your Access Passcode</h2>
-      </div>
-
-      <p class="text-zinc-300 text-sm leading-relaxed mb-4">
-        When the application launches for the first time, you will see the MergeIt AI Activation window.
-      </p>
-
-      <ul class="space-y-2 text-xs text-zinc-300 mb-5">
-        <li class="flex items-start space-x-2">
-          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span>If you want to test the app first, generate an instant 2-hour trial key on our website: <a href="/#trial" class="text-emerald-400 underline hover:text-emerald-300 font-medium">Claim Free 2-Hour Pass</a>.</span>
-        </li>
-        <li class="flex items-start space-x-2">
-          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span>If you purchased a pass (2-Hour, 7-Day, or 30-Day), use the unique key shown on your order confirmation screen or sent via email.</span>
-        </li>
-        <li class="flex items-start space-x-2">
-          <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span>Type or paste the code into the input field and click <strong class="text-white">"Unlock MergeIt AI"</strong>. The pass timer begins upon entry.</span>
-        </li>
-      </ul>
-    </div>
-
-    <!-- STEP 3: FREE GROQ API KEY (HIGHLIGHTED) -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border-2 border-emerald-500/40 shadow-xl shadow-emerald-950/30 relative overflow-hidden bg-gradient-to-b from-[#0e141f] to-[#0a0d14]">
-      <div class="absolute -top-12 -right-12 w-48 h-48 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center space-x-3">
-          <span class="w-8 h-8 rounded-xl bg-emerald-500 text-black flex items-center justify-center font-mono font-black text-sm">
-            03
-          </span>
-          <h2 class="text-xl font-bold text-white tracking-tight">Create & Connect Your Free Groq API Key</h2>
-        </div>
-        <span class="hidden sm:inline-flex text-[11px] font-mono px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-bold">
-          ⚡ 180ms ULTRA-FAST
-        </span>
-      </div>
-
-      <p class="text-zinc-300 text-sm leading-relaxed mb-4">
-        MergeIt AI is powered by <strong class="text-white">Groq LPU Inference</strong>. Groq delivers answers at over <strong>500 tokens per second</strong> — meaning when your interviewer finishes asking a question, your answer appears on your teleprompter in less than 300 milliseconds.
-      </p>
-
-      <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 mb-6">
-        <h3 class="text-xs font-mono font-bold text-emerald-300 mb-2 uppercase tracking-wide flex items-center space-x-1.5">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
-          <span>Why Create Your Own API Key?</span>
-        </h3>
-        <p class="text-xs text-zinc-300 leading-relaxed">
-          Groq provides a <strong class="text-white">100% Free Developer Tier</strong> with zero credit card required. Using your personal free key gives you unlimited private rate limits with zero throttling during high-stakes interviews.
-        </p>
-      </div>
-
-      <!-- Step by step instructions -->
-      <div class="space-y-4 font-sans text-xs text-zinc-300 mb-6">
-        <div class="flex items-start space-x-3 p-3 bg-black/40 rounded-xl border border-white/5">
-          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">1</span>
-          <div>
-            <strong class="text-white block mb-0.5">Go to the Groq Cloud Console:</strong>
-            <span>Visit <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="text-emerald-400 font-mono underline hover:text-emerald-300 font-bold">https://console.groq.com/keys</a> and log in with your Google or GitHub account.</span>
+          <div class="space-y-2.5 font-mono text-xs text-zinc-300 bg-black/50 p-4 rounded-xl border border-white/5 mb-6">
+            <div class="flex items-start space-x-2.5">
+              <span class="text-emerald-400 font-bold select-none">1.</span>
+              <span>Click the download button below to get <code class="text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-500/20">MergeIt-AI-v1.0.zip</code>.</span>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <span class="text-emerald-400 font-bold select-none">2.</span>
+              <span>Right-click the zip file and click <strong class="text-white">"Extract All..."</strong> to any folder (e.g. Desktop).</span>
+            </div>
+            <div class="flex items-start space-x-2.5">
+              <span class="text-emerald-400 font-bold select-none">3.</span>
+              <span>Open the extracted folder and double-click <strong class="text-emerald-400 font-bold">Mirage.exe</strong>.</span>
+            </div>
           </div>
         </div>
 
-        <div class="flex items-start space-x-3 p-3 bg-black/40 rounded-xl border border-white/5">
-          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">2</span>
-          <div>
-            <strong class="text-white block mb-0.5">Generate a New API Key:</strong>
-            <span>Click the green <strong class="text-white">"Create API Key"</strong> button. Give it a name (e.g. <code>MergeIt-Copilot</code>) and click Submit.</span>
+        <div class="pt-2">
+          <a href="https://github.com/munaf270501/MergeIT/releases/download/v1.0.0/MergeIt-AI-v1.0.zip" download class="inline-flex items-center space-x-2.5 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs transition-all shadow-lg shadow-emerald-500/20 hover:scale-[1.01]">
+            <i data-lucide="download" class="w-4 h-4"></i>
+            <span>Download MergeIt-AI-v1.0.zip (116 MB)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- STEP 2: ACTIVATE ACCESS PASSCODE -->
+      <div class="sober-glass-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between hover:border-emerald-500/30 transition-all relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/10 transition-all"></div>
+
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-black text-sm">
+              02
+            </span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Enter Your Passcode</h2>
+              <div class="text-[11px] font-mono text-zinc-400">Free 2-Hour Trial or Purchased Access Pass</div>
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-5">
+            When the application launches for the first time, you will be prompted to enter your license passcode to unlock the interface.
+          </p>
+
+          <div class="space-y-3 text-xs text-zinc-300 mb-6">
+            <div class="flex items-start space-x-2.5 p-3 rounded-xl bg-black/40 border border-white/5">
+              <i data-lucide="key" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white">Free 2-Hour Trial:</strong> Claim your free instant pass directly on our website at <a href="/#trial" class="text-emerald-400 underline hover:text-emerald-300 font-semibold">Free Trial Section</a>.
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-2.5 p-3 rounded-xl bg-black/40 border border-white/5">
+              <i data-lucide="credit-card" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+              <div>
+                <strong class="text-white">Purchased Passes:</strong> If you purchased a 2-Hour, 7-Day, or 30-Day pass, copy the key from your confirmation screen or order email.
+              </div>
+            </div>
+
+            <div class="p-3 bg-emerald-950/40 rounded-xl border border-emerald-500/30 text-[11px] font-mono text-emerald-300">
+              <span class="font-bold text-emerald-400">⏳ Fair-Play Timer:</span> Your access duration starts countdown only after you click <strong>"Unlock MergeIt AI"</strong> on your computer.
+            </div>
           </div>
         </div>
 
-        <div class="flex items-start space-x-3 p-3 bg-black/40 rounded-xl border border-white/5">
-          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">3</span>
-          <div>
-            <strong class="text-white block mb-0.5">Copy Your Key:</strong>
-            <span>Copy the key that begins with <code class="text-emerald-400 font-mono bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">gsk_...</code>. Keep it safe.</span>
+        <div class="pt-2 flex items-center space-x-3">
+          <a href="/#trial" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-xs font-semibold text-zinc-200 transition-all">
+            <i data-lucide="key" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Generate Free Trial Pass</span>
+          </a>
+          <a href="/#pricing" class="inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-xs font-semibold text-emerald-400 transition-all">
+            <span>View Pricing & Plans</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- ROW 2: STEP 03: FREE GROQ API KEY (FULL-WIDTH 12-COL SHOWCASE CARD) -->
+    <!-- ======================================================================= -->
+    <div class="sober-glass-card rounded-2xl p-7 sm:p-10 border-2 border-emerald-500/40 shadow-2xl shadow-emerald-950/20 relative overflow-hidden bg-gradient-to-br from-[#0d131f] via-[#090c14] to-[#07080c]">
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Side: Overview & Value Prop (5 cols) -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="flex items-center space-x-3">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500 text-black flex items-center justify-center font-mono font-black text-sm">
+              03
+            </span>
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Free Groq API Key Setup</h2>
+              <span class="text-xs font-mono text-emerald-400 font-semibold tracking-wide">⚡ 180ms ULTRA-FAST STREAMING</span>
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+            MergeIt AI uses <strong class="text-white font-medium">Groq LPU (Language Processing Unit)</strong> hardware. Groq processes text at over <span class="text-emerald-400 font-semibold">500 tokens per second</span> — generating complete, structured answers before your interviewer even finishes pausing.
+          </p>
+
+          <div class="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/30 space-y-2">
+            <div class="flex items-center space-x-2 text-xs font-mono font-bold text-emerald-300 uppercase tracking-wide">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>100% Free Developer Tier (No Credit Card)</span>
+            </div>
+            <p class="text-xs text-zinc-300 leading-relaxed">
+              Groq provides a generous free tier with zero payment details required. Using your personal API key gives you dedicated rate limits, zero throttling, and maximum privacy.
+            </p>
+          </div>
+
+          <div class="pt-2">
+            <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2.5 px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs transition-all shadow-xl shadow-emerald-500/25 hover:scale-[1.02]">
+              <span>Create Free Key on Groq Console</span>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+            </a>
+            <div class="text-[11px] font-mono text-zinc-400 mt-2">
+              Opens: <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">https://console.groq.com/keys</a>
+            </div>
           </div>
         </div>
 
-        <div class="flex items-start space-x-3 p-3 bg-black/40 rounded-xl border border-white/5">
-          <span class="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[11px] shrink-0 mt-0.5">4</span>
-          <div>
-            <strong class="text-white block mb-0.5">Paste into MergeIt AI Settings:</strong>
-            <span>In the MergeIt AI floating HUD, click the <strong class="text-white">Settings Cog (⚙️)</strong> in the top header. Select <strong>Provider: Groq</strong>, paste your key into <strong>Groq API Key</strong>, and click <strong>"Save Settings"</strong>.</span>
+        <!-- Right Side: Step-by-Step Walkthrough (7 cols) -->
+        <div class="lg:col-span-7 bg-black/60 rounded-xl p-5 sm:p-6 border border-white/10 space-y-4">
+          <div class="text-xs font-mono font-bold text-zinc-200 uppercase tracking-wider flex items-center justify-between pb-3 border-b border-white/10">
+            <span>Step-by-Step Instructions</span>
+            <span class="text-emerald-400">Takes under 60 seconds</span>
+          </div>
+
+          <div class="space-y-3.5 text-xs text-zinc-300">
+            
+            <div class="flex items-start space-x-3 p-3 bg-zinc-900/60 rounded-xl border border-white/5">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center shrink-0 text-xs">1</span>
+              <div>
+                <strong class="text-white block mb-0.5">Sign In to Groq Cloud</strong>
+                <span>Visit <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline font-mono">console.groq.com/keys</a> and log in with your Google or GitHub account.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 bg-zinc-900/60 rounded-xl border border-white/5">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center shrink-0 text-xs">2</span>
+              <div>
+                <strong class="text-white block mb-0.5">Generate API Key</strong>
+                <span>Click the green <strong class="text-white">"Create API Key"</strong> button. Enter any name (e.g. <code class="text-emerald-400 bg-black/60 px-1 py-0.5 rounded font-mono">MergeIt</code>) and click Submit.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 bg-zinc-900/60 rounded-xl border border-white/5">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center shrink-0 text-xs">3</span>
+              <div>
+                <strong class="text-white block mb-0.5">Copy Your Secret Key</strong>
+                <span>Copy the generated key beginning with <code class="text-emerald-400 bg-black/60 px-1 py-0.5 rounded font-mono">gsk_...</code> to your clipboard. (Note: Groq displays it only once).</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3 p-3 bg-zinc-900/60 rounded-xl border border-white/5">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 font-mono font-bold flex items-center justify-center shrink-0 text-xs">4</span>
+              <div>
+                <strong class="text-white block mb-0.5">Paste into MergeIt AI Settings</strong>
+                <span>In the MergeIt AI HUD, click the <strong class="text-white">Gear Icon (⚙️)</strong> in the top header. Paste your key into the <strong class="text-emerald-400">Groq API Key</strong> field and click <strong class="text-white">Save Changes</strong>.</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-2 text-[11px] font-mono text-zinc-400 flex items-center space-x-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+            <span>That's it! MergeIt AI will immediately stream answers using your private Groq LPU engine.</span>
           </div>
         </div>
-      </div>
 
-      <!-- Action Link Button -->
-      <div class="flex flex-col sm:flex-row items-center gap-3">
-        <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-extrabold text-xs transition-all shadow-lg shadow-emerald-500/20 hover:scale-[1.02]">
-          <i data-lucide="external-link" class="w-4 h-4"></i>
-          <span>Open Groq Console to Create Free API Key</span>
-        </a>
-        <span class="text-[11px] text-zinc-500 font-mono">No credit card required • Instant activation</span>
       </div>
     </div>
 
-    <!-- STEP 4: CONFIGURE SYSTEM AUDIO LISTENING -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
-          04
-        </span>
-        <h2 class="text-xl font-bold text-white tracking-tight">Audio Listener & Real-Time Interview Transcription</h2>
+    <!-- ======================================================================= -->
+    <!-- ROW 3: STEP 04 (AUDIO CONFIGURATION) & STEP 05 (KEYBOARD SHORTCUTS) -->
+    <!-- ======================================================================= -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- STEP 4: SYSTEM AUDIO CONFIGURATION -->
+      <div class="sober-glass-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between hover:border-emerald-500/30 transition-all relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/10 transition-all"></div>
+
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-black text-sm">
+              04
+            </span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Audio Loopback Configuration</h2>
+              <div class="text-[11px] font-mono text-zinc-400">Transcribing Interviewer Audio in Real Time</div>
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-5">
+            MergeIt AI captures audio using Windows audio loopback so it transcribes the voices of other meeting participants through your headphones or speakers.
+          </p>
+
+          <div class="space-y-3 font-sans text-xs text-zinc-300 mb-6">
+            <div class="p-3 bg-black/40 rounded-xl border border-white/5 space-y-1">
+              <div class="flex items-center space-x-2 font-mono text-emerald-400 font-bold text-xs">
+                <i data-lucide="headphones" class="w-3.5 h-3.5"></i>
+                <span>One-Touch Toggle (Ctrl + L)</span>
+              </div>
+              <p class="text-zinc-300 leading-relaxed">
+                Press <kbd class="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded font-mono text-white text-[11px]">Ctrl + L</kbd> or click the <strong>Audio / Loopback</strong> button in the HUD to start or pause listening.
+              </p>
+            </div>
+
+            <div class="p-3 bg-black/40 rounded-xl border border-white/5 space-y-1">
+              <div class="flex items-center space-x-2 font-mono text-emerald-400 font-bold text-xs">
+                <i data-lucide="mic" class="w-3.5 h-3.5"></i>
+                <span>Headphones & Meeting Audio</span>
+              </div>
+              <p class="text-zinc-300 leading-relaxed">
+                Ensure your meeting platform (Zoom, Google Meet, Teams) audio output device is set to your active headphones so MergeIt captures the interviewer's speech with zero echo.
+              </p>
+            </div>
+
+            <div class="p-3 bg-black/40 rounded-xl border border-white/5 space-y-1">
+              <div class="flex items-center space-x-2 font-mono text-emerald-400 font-bold text-xs">
+                <i data-lucide="play-circle" class="w-3.5 h-3.5"></i>
+                <span>Click-to-Solve</span>
+              </div>
+              <p class="text-zinc-300 leading-relaxed">
+                As questions are spoken, candidate chips appear in the left feed. Click any transcript chip or press <kbd class="bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded font-mono text-white text-[11px]">Ctrl + Enter</kbd> to stream the answer instantly.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-2 text-[11px] font-mono text-zinc-400">
+          Tip: Test by opening any YouTube technical interview and pressing <kbd class="bg-zinc-800 px-1.5 py-0.5 rounded text-white">Ctrl + L</kbd>.
+        </div>
       </div>
 
-      <p class="text-zinc-300 text-sm leading-relaxed mb-4">
-        MergeIt AI listens to the interviewer's voice and transcribes questions in real time using your system audio loopback.
-      </p>
+      <!-- STEP 5: KEYBOARD SHORTCUTS -->
+      <div class="sober-glass-card rounded-2xl p-7 sm:p-9 flex flex-col justify-between hover:border-emerald-500/30 transition-all relative overflow-hidden group">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none group-hover:bg-emerald-500/10 transition-all"></div>
 
-      <div class="space-y-3 text-xs text-zinc-300 mb-5">
-        <div class="flex items-start space-x-2.5">
-          <i data-lucide="volume-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span><strong class="text-white">Toggle Listening:</strong> Press <kbd class="font-mono bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-zinc-200">Ctrl + L</kbd> or click the sound wave icon in the top header. When active, the equalizer wave bars animate in green.</span>
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-black text-sm">
+              05
+            </span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Essential Stealth Shortcuts</h2>
+              <div class="text-[11px] font-mono text-zinc-400">Zero-Mouse Control During Live Screen Sharing</div>
+            </div>
+          </div>
+
+          <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-4">
+            Memorize these shortcuts so you can solve questions, snip LeetCode problems, and cloak your cursor without touching your mouse.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs mb-4">
+            
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Toggle HUD</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-emerald-400 font-bold text-[11px]">Ctrl + \</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Screen Snip (Code)</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-emerald-400 font-bold text-[11px]">Ctrl + Shift + S</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Solve Question</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-emerald-400 font-bold text-[11px]">Ctrl + Enter</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Cloak Cursor</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-amber-400 font-bold text-[11px]">F8</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Click-Through Ghost</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-amber-400 font-bold text-[11px]">Ctrl + G</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Quick Copy Answer</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-zinc-300 font-bold text-[11px]">Ctrl + Shift + C</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Switch Mode</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-zinc-300 font-bold text-[11px]">Ctrl + 1/2/3/4</kbd>
+            </div>
+
+            <div class="p-2.5 bg-black/40 rounded-xl border border-white/5 flex items-center justify-between">
+              <span class="text-zinc-300 text-[11px]">Panic Hide (Close)</span>
+              <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-0.5 rounded text-rose-400 font-bold text-[11px]">Ctrl + Shift + X</kbd>
+            </div>
+
+          </div>
         </div>
-        <div class="flex items-start space-x-2.5">
-          <i data-lucide="headphones" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span><strong class="text-white">Headphones Configuration:</strong> If you are wearing headphones during a Zoom, Teams, or Google Meet call, ensure your Windows sound settings have the meeting output set to your active headphones so the system audio loopback captures the interviewer's speech.</span>
-        </div>
-        <div class="flex items-start space-x-2.5">
-          <i data-lucide="play" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-          <span><strong class="text-white">Click-to-Solve:</strong> As the interviewer speaks, transcript chips appear in the left feed. Click any transcript chip or press <kbd class="font-mono bg-zinc-800 border border-zinc-700 px-1.5 py-0.5 rounded text-zinc-200">Ctrl + Enter</kbd> to stream the optimal answer instantly.</span>
+
+        <div class="pt-2 text-[11px] font-mono text-zinc-400">
+          Tip: You can customize all global hotkeys anytime in the app Settings modal.
         </div>
       </div>
+
     </div>
 
-    <!-- STEP 5: SHORTCUTS CHEAT SHEET -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
-          05
-        </span>
-        <h2 class="text-xl font-bold text-white tracking-tight">Essential Stealth Keyboard Shortcuts</h2>
-      </div>
-
-      <p class="text-zinc-300 text-sm leading-relaxed mb-6">
-        Memorize these essential hotkeys so you never have to touch your mouse during a live interview:
-      </p>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Toggle HUD Visibility</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-emerald-400 font-bold">Ctrl + \</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Screen Snip (LeetCode)</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-emerald-400 font-bold">Ctrl + Shift + S</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Solve Transcript Question</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-emerald-400 font-bold">Ctrl + Enter</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Cloak Meeting Mouse Cursor</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-purple-300 font-bold">F8</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Click-Through Ghost Mode</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-amber-300 font-bold">Ctrl + G</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Quick Copy Answer</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-zinc-300 font-bold">Ctrl + Shift + C</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Switch Modes (STAR/Code/Design)</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-zinc-300 font-bold">Ctrl + 1 / 2 / 3 / 4</kbd>
-        </div>
-        <div class="p-3 bg-[#0d0f18] rounded-xl border border-white/5 flex items-center justify-between">
-          <span class="text-zinc-300">Panic Hide (Instant Close)</span>
-          <kbd class="bg-zinc-800 border border-zinc-700 px-2 py-1 rounded text-rose-400 font-bold">Ctrl + Shift + X</kbd>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 6: PRO INTERVIEW TIPS -->
-    <div class="sober-glass-card rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-      <div class="flex items-center space-x-3 mb-4">
-        <span class="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold text-sm">
+    <!-- ======================================================================= -->
+    <!-- ROW 4: STEP 06: PRO INTERVIEW TIPS (FULL-WIDTH 3-COLUMN CARDS) -->
+    <!-- ======================================================================= -->
+    <div class="sober-glass-card rounded-2xl p-7 sm:p-9 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
+      <div class="flex items-center space-x-3 mb-6">
+        <span class="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-black text-sm">
           06
         </span>
-        <h2 class="text-xl font-bold text-white tracking-tight">Pro Tips to Ace Your Interview with Zero Detection</h2>
+        <div>
+          <h2 class="text-lg sm:text-xl font-bold text-white tracking-tight">Pro Tips to Ace Your Interview with Zero Detection</h2>
+          <div class="text-[11px] font-mono text-zinc-400">Battle-Tested Recommendations for Live Screen Sharing</div>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-zinc-300">
-        <div class="p-4 bg-[#0a0d14] rounded-xl border border-white/5">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-zinc-300">
+        
+        <div class="p-5 bg-black/50 rounded-xl border border-white/5 space-y-2.5">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
             <i data-lucide="eye" class="w-4 h-4"></i>
           </div>
-          <h4 class="font-bold text-white mb-1.5">Align Under Webcam</h4>
-          <p class="text-zinc-400 leading-relaxed">
-            Drag the MergeIt AI HUD directly underneath your physical webcam lens. When reading answers off the screen, your eyes look straight at the interviewer.
+          <h3 class="font-bold text-white text-sm">Align Under Webcam</h3>
+          <p class="text-zinc-400 leading-relaxed text-xs">
+            Drag the MergeIt AI HUD directly underneath your physical webcam lens. When reading streamed answers, your natural gaze looks directly into the lens, maintaining confident eye contact with interviewers.
           </p>
         </div>
 
-        <div class="p-4 bg-[#0a0d14] rounded-xl border border-white/5">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3">
+        <div class="p-5 bg-black/50 rounded-xl border border-white/5 space-y-2.5">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
             <i data-lucide="shield" class="w-4 h-4"></i>
           </div>
-          <h4 class="font-bold text-white mb-1.5">Anti-Capture Shield</h4>
-          <p class="text-zinc-400 leading-relaxed">
-            MergeIt AI uses Windows Display Affinity exclusion. If you share your screen on Zoom, Teams, or Google Meet, the HUD is 100% invisible to interviewers.
+          <h3 class="font-bold text-white text-sm">Anti-Capture Shield Active</h3>
+          <p class="text-zinc-400 leading-relaxed text-xs">
+            MergeIt AI uses Windows Display Affinity exclusion. When you share your entire desktop or browser on Zoom, Teams, or Google Meet, the HUD is 100% invisible on the interviewer's screen.
           </p>
         </div>
 
-        <div class="p-4 bg-[#0a0d14] rounded-xl border border-white/5">
-          <div class="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center mb-3">
-            <i data-lucide="mic" class="w-4 h-4"></i>
+        <div class="p-5 bg-black/50 rounded-xl border border-white/5 space-y-2.5">
+          <div class="w-9 h-9 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="volume-2" class="w-4 h-4"></i>
           </div>
-          <h4 class="font-bold text-white mb-1.5">Test Before Live Call</h4>
-          <p class="text-zinc-400 leading-relaxed">
-            Before your interview, open a YouTube technical interview mock video, press <kbd class="font-mono bg-zinc-800 px-1 py-0.5 rounded">Ctrl + L</kbd>, and watch MergeIt transcribe and stream answers live!
+          <h3 class="font-bold text-white text-sm">Pre-Call Rehearsal</h3>
+          <p class="text-zinc-400 leading-relaxed text-xs">
+            10 minutes before your interview, open a mock interview or coding video on YouTube. Press <kbd class="font-mono bg-zinc-800 px-1 py-0.5 rounded text-white text-[11px]">Ctrl + L</kbd> and watch MergeIt transcribe and stream solutions in real time.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- QUICK SETUP FAQ CARDS (MATCHING FAQ LOOK FROM HOMEPAGE) -->
+    <!-- ======================================================================= -->
+    <div class="pt-6">
+      <div class="text-center mb-8">
+        <h3 class="text-xl sm:text-2xl font-bold text-white tracking-tight">Frequently Asked Setup Questions</h3>
+        <p class="text-xs sm:text-sm text-zinc-400 mt-1">Common questions about Groq API keys and stealth execution</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="sober-glass-card rounded-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all">
+          <h4 class="text-white font-bold text-sm mb-2 flex items-center space-x-2">
+            <i data-lucide="help-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>Will Groq ever charge me for using their API?</span>
+          </h4>
+          <p class="text-zinc-400 leading-relaxed text-xs">
+            No. Groq has a dedicated free developer tier that provides tens of thousands of tokens daily with no credit card required. For interview preparation and live interviews, this free tier is more than sufficient.
+          </p>
+        </div>
+
+        <div class="sober-glass-card rounded-2xl p-6 border border-white/10 hover:border-emerald-500/30 transition-all">
+          <h4 class="text-white font-bold text-sm mb-2 flex items-center space-x-2">
+            <i data-lucide="help-circle" class="w-4 h-4 text-emerald-400"></i>
+            <span>Can I also use OpenAI, Claude, or Gemini?</span>
+          </h4>
+          <p class="text-zinc-400 leading-relaxed text-xs">
+            Yes! In the MergeIt AI Settings modal, you can also paste your OpenAI (GPT-4o), Anthropic (Claude 3.5 Sonnet), or Google Gemini API keys anytime if you prefer other LLM providers.
           </p>
         </div>
       </div>
@@ -406,23 +578,98 @@
   </main>
 
   <!-- ========================================================================= -->
-  <!-- FOOTER -->
+  <!-- FOOTER (EXACT 4-COLUMN FOOTER FROM MAIN WEBSITE) -->
   <!-- ========================================================================= -->
-  <footer class="border-t border-white/[0.08] bg-[#050609] py-12 px-6">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500 space-y-4 sm:space-y-0">
-      <div class="flex items-center space-x-2">
-        <span class="font-bold text-white">MergeIt AI</span>
-        <span>•</span>
-        <span>Undetectable AI Copilot for Live Interviews</span>
+  <footer class="pt-16 pb-12 border-t border-white/[0.08] bg-black/40 backdrop-blur-sm text-xs">
+    <div class="w-full max-w-7xl mx-auto px-6 sm:px-10">
+      
+      <!-- Top Grid: 4 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/[0.06]">
+        
+        <!-- Col 1: Brand & Bio -->
+        <div class="md:col-span-1 space-y-4">
+          <a href="/" class="inline-flex items-center space-x-1.5 group">
+            <span class="text-xl font-black tracking-tight text-white group-hover:text-emerald-400 transition-colors">MergeIt</span>
+            <span class="text-xs font-extrabold font-mono text-emerald-400 tracking-wider">AI</span>
+          </a>
+          <p class="text-zinc-400 text-xs leading-relaxed">
+            Next-generation real-time interview intelligence copilot. Stealth, zero-latency desktop HUD designed for high-stakes technical interviews.
+          </p>
+          <div class="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-mono text-emerald-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Cloudflare Edge Active • 99.9% Uptime</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Product & Capabilities -->
+        <div class="space-y-3">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-bold">Product</div>
+          <ul class="space-y-2 text-zinc-400">
+            <li>
+              <a href="/setup" class="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors flex items-center space-x-1.5">
+                <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                <span>How to Setup (Tutorial)</span>
+              </a>
+            </li>
+            <li><a href="/#features" class="hover:text-emerald-400 transition-colors">Stealth Window Capture</a></li>
+            <li><a href="/#features" class="hover:text-emerald-400 transition-colors">Real-time Audio STT</a></li>
+            <li><a href="/#shortcuts" class="hover:text-emerald-400 transition-colors">Global Hotkeys Guide</a></li>
+            <li><a href="https://github.com/munaf270501/MergeIT/releases/download/v1.0.0/MergeIt-AI-v1.0.zip" download class="hover:text-emerald-400 transition-colors">Download for Windows</a></li>
+            <li><a href="/#trial" class="hover:text-emerald-400 transition-colors">Free 2-Hour Trial</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Pricing & Access -->
+        <div class="space-y-3">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-bold">Pricing & Plans</div>
+          <ul class="space-y-2 text-zinc-400">
+            <li><a href="/#pricing" class="hover:text-emerald-400 transition-colors">2-Hour Pass — ₹49</a></li>
+            <li><a href="/#pricing" class="hover:text-emerald-400 transition-colors">7-Day Sprint — ₹299</a></li>
+            <li><a href="/#pricing" class="hover:text-emerald-400 transition-colors">1-Month Season — ₹999</a></li>
+            <li><a href="/#faq" class="hover:text-emerald-400 transition-colors">Payment & Refund FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Privacy & Security -->
+        <div class="space-y-3">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-bold">Trust & Privacy</div>
+          <ul class="space-y-2 text-zinc-400">
+            <li class="flex items-center space-x-1.5">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Zero Disk Logs (RAM Only)</span>
+            </li>
+            <li class="flex items-center space-x-1.5">
+              <i data-lucide="eye-off" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Screen-Share Invisible</span>
+            </li>
+            <li class="flex items-center space-x-1.5">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Verified Razorpay Gateway</span>
+            </li>
+            <li class="flex items-center space-x-1.5">
+              <i data-lucide="mail" class="w-3.5 h-3.5 text-emerald-400"></i>
+              <span>Instant SMTP Code Delivery</span>
+            </li>
+          </ul>
+        </div>
+
       </div>
 
-      <div class="flex items-center space-x-6">
-        <a href="/" class="hover:text-emerald-400 transition-colors">Home</a>
-        <a href="/#pricing" class="hover:text-emerald-400 transition-colors">Pricing</a>
-        <a href="/#trial" class="hover:text-emerald-400 transition-colors">Free Trial</a>
-        <a href="https://console.groq.com/keys" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors">Groq Console</a>
-        <a href="mailto:support@mergeit.in" class="hover:text-emerald-400 transition-colors">Support</a>
+      <!-- Bottom Row: Copyright & Notice -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-zinc-500">
+        <div>
+          © 2026 MergeIt AI (<a href="https://mergeit.in" class="text-zinc-400 hover:text-emerald-400 transition-colors">mergeit.in</a>). All rights reserved.
+        </div>
+        <div class="flex items-center space-x-4">
+          <span>Protected by Cloudflare SSL</span>
+          <span>•</span>
+          <a href="#top" class="hover:text-emerald-400 transition-colors flex items-center space-x-1">
+            <span>Back to top</span>
+            <span>↑</span>
+          </a>
+        </div>
       </div>
+
     </div>
   </footer>
 
